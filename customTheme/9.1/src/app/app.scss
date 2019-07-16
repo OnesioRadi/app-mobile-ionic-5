@@ -1,0 +1,678 @@
+﻿// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/*CSS customizado do projeto*/
+@import './components/ion-digit-keyboard/ion-digit-keyboard';
+/*Fontes*/
+@font-face{
+  font-family: 'Kredit';
+  src: url('../assets/fonts/kredit/kredit-front-webfont.eot');
+  src: url('../assets/fonts/kredit/kredit-front-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/kredit/kredit-front-webfont.woff') format('woff'),
+       url('../assets/fonts/kredit/kredit-front-webfont.ttf') format('truetype'),
+       url('../assets/fonts/kredit/kredit-front-webfont.svg#webfont') format('svg');
+}
+
+/*senha com teclado numerico
+input[type=number] {
+    -webkit-text-security: disc !important;
+}
+*/
+
+.fonte-cartao{
+  font-family: 'Kredit', Arial, sans-serif !important;
+  //font-family: 'Roboto', Arial, sans-serif !important;
+  font-weight: bold;
+  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.fonte-senha{
+  font-family: sans-serif !important;
+  font-weight: bold !important;
+  font-size: 35px !important;
+}
+
+.negrito{
+  font-weight: bold !important;
+}
+.italico{
+
+}
+.sublinhado{
+
+}
+
+.texto-cartao{
+  font-size: 15px !important;
+}
+
+.sem-sublinhado{
+  text-decoration: none !important;
+}
+
+.texto-saldo{
+  font-size: 35px !important;
+}
+
+.texto-valor-pagamento{
+  font-size: 55px !important;
+}
+
+.obrigatorio{
+  color: red !important;
+}
+
+
+/*Alinahmentos*/
+
+.texto-esquerda{
+	text-align: left !important;
+}
+
+.texto-centro{
+	text-align: center !important;
+}
+
+.texto-direita{
+	text-align:  right !important;
+}
+
+.centro-vertical{
+  line-height: 10px !important;
+}
+
+.alinhamento-valor{
+  height:30%;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
+}
+
+.truncate{
+    white-space: nowrap;
+    width: 100%;                   
+    overflow: hidden;              
+    -o-text-overflow: ellipsis;
+    text-overflow:    ellipsis;
+}
+
+.esconde{
+  display: none !important;
+}
+
+.situacao_1{ //vernelho
+
+  color: #c62828 !important;
+
+}
+
+.situacao_{
+  color: #1565c0 !important;
+}
+
+.positivo{
+  color: #1b5e20 !important;
+}
+
+.negativo{
+  color: #c62828 !important;
+}
+
+/*Imagens e Icones*/
+.icon-add-cartao{
+  height:150px !important;
+}
+
+.icone-offline{
+  font-size: 130px !important;
+}
+
+.icone-cartao{
+  height: 30px !important;
+  width: auto !important;
+}
+
+
+/*Imagens*/
+.logo-gateway{
+  height: 45px !important;
+  width: auto !important;
+}
+
+.logo-menu{
+  height: 40px !important;
+  width: auto !important;
+  padding: 2px;
+}
+
+.logo-contato{
+  height: 65px !important;
+  width: auto !important;
+}
+
+.logo-cartao{
+  height: 30px !important;
+  width: auto !important;
+}
+
+.logo-cpf{
+  height: 45px !important;
+  width: auto !important;
+}
+
+.logo-cartao-mini{
+  height: 20px !important;
+  width: auto !important;
+}
+
+.icone-rede{
+
+  padding: 10px !important;
+
+}
+
+/*Fundos*/
+.cartao-branco{
+
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%) !important;
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1))) !important;
+background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%) !important;
+background: -o-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%) !important;
+background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%) !important;
+background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%) !important;
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 ) !important;
+
+}
+
+.cartao-cpf{
+  background-color: #3254D2;
+  background-image: url('../assets/img/fundos/republica-federativa-do-brasil-brasao.svg') !important;
+  background-repeat: no-repeat;
+  background-position: right top;
+  color: #FFF !important;
+}
+
+.porcentagem-desconto{
+
+  color: #fff !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  border-radius: 50px !important;
+  background-image: -o-linear-gradient(bottom, #F9A825 0%, #F57F17 100%);
+  background-image: -moz-linear-gradient(bottom, #F9A825 0%, #F57F17 100%);
+  background-image: -webkit-linear-gradient(bottom, #F9A825  0%, #F57F17 100%);
+  background-image: -ms-linear-gradient(bottom, #F9A825  0%, #F57F17 100%);
+  background-image: linear-gradient(to bottom, #F9A825 0%, #F57F17 100%);
+
+}
+.transparente-escuro{
+  background-color:rgba(0, 0, 0, 0.5);
+}
+.transparent{
+  background-color: transparent !important;
+}
+/*Promocoes*/
+.card-background-page {
+
+  ion-card{
+    position: relative;
+    text-align: center;
+  }
+
+  .perc-card{
+    position: absolute;
+    top: 52%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .numero-card{
+
+    padding: 5px;
+    border-radius: 3px;
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0,  #F9A825),
+      color-stop(1, #F57F17)
+    );
+    background-image: -o-linear-gradient(bottom, #F9A825 0%, #F57F17 100%);
+    background-image: -moz-linear-gradient(bottom, #F9A825 0%, #F57F17 100%);
+    background-image: -webkit-linear-gradient(bottom, #F9A825  0%, #F57F17 100%);
+    background-image: -ms-linear-gradient(bottom, #F9A825  0%, #F57F17 100%);
+    background-image: linear-gradient(to bottom, #F9A825 0%, #F57F17 100%);
+
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.2),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    
+  }
+
+  .nome-estabelecimento-card {
+    font-size: 1.0em;
+    position: absolute;
+    top: 72%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .segmento-card{
+
+    font-size: 1.0em;
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    color: #fff; 
+  
+  } 
+
+  .tempo-card{
+
+    font-size: 1.0em;
+    position: absolute;
+    top: 88%;
+    width: 100%;
+    color: #fff; 
+  
+  }
+
+
+  .time-card{
+
+    color: #fdd835 !important;
+    font-weight: bold;
+
+  }
+
+}
+
+/*Fim promocoes*/
+
+.aprovada{
+
+  background: #B9F6CA;
+
+}
+
+.reprovada{
+
+  background: #FFEBEE;
+
+}
+
+.neutra{
+
+  color: #bbbbbb;
+
+}
+
+.coupon-area{
+  
+  padding-left: 10px !important;
+
+}
+
+.cartao-amarelo{
+
+  background: #FFD37D;
+  box-shadow: none !important;
+
+}
+
+.topo-cartao-amarelo{
+
+  margin-bottom: -2px;
+  box-shadow: none !important;
+
+}
+
+.base-cartao-amarelo{
+  
+  margin-top: -12px !important; 
+  box-shadow: none !important;
+}
+
+
+
+.logo-nav-bar{
+
+  height: 100% !important;
+  padding: 5px !important;
+
+}
+
+.whatsapp{
+
+  color: #2AB200 !important;
+
+}
+
+.texto-branco{
+
+ color: #FFF !important;
+
+}
+
+.texto-preto{
+
+ color: #000 !important;
+
+}
+
+/*Bordas*/
+.borda-cartao-light{
+  border-left: 6px solid #f4f4f4 !important;
+}
+.borda-cartao-padrao{
+  border-left: 6px solid #01579B !important;
+}
+
+.borda-cartao-padrao-100{
+  border-left: 6px solid #0169BE !important;
+}
+
+.borda-cartao-padrao-20{
+  border-left: 6px solid #12A19A !important;
+}
+
+
+.borda-cartao-padrao-2{
+  border-left: 6px solid #0169BE !important;
+}
+
+
+.borda-cartao-padrao-28{
+  border-left: 6px solid  #016296 !important;
+}
+
+.borda-cartao-padrao-29{
+  border-left: 6px solid #47B75B !important;
+}
+
+
+.borda-cartao-padrao-26{
+  border-left: 6px solid #F08221 !important;
+}
+
+.borda-cartao-padrao-41{
+  border-left: 6px solid #EC2156 !important;
+}
+
+
+/* Cartões*/
+.borda-cartao-padrao-9{
+  border-left: 6px solid #5557B9 !important;
+}
+
+/*
+// .borda-cartao-frota{
+//   border-left: 6px solid #01579B !important;
+// }
+
+// .borda-cartao-alimentacao{
+//   border-left: 6px solid #E65100 !important;
+// }
+
+// .borda-cartao-refeicao{
+//   border-left: 6px solid #B71C1C !important;
+// }
+
+// .borda-cartao-convenio{
+//   border-left: 6px solid #006064 !important;
+// }
+
+// .borda-cartao-bonuscombustivel{
+//   border-left: 6px solid #FF6F00 !important;
+// }
+
+// .borda-cartao-combustivel{
+//   border-left: 6px solid #AEEA00 !important;
+// }
+
+// .borda-cartao-credito{
+//   border-left: 6px solid #03A9F4 !important;
+// }
+
+// .borda-cartao-fidelidade{
+//   border-left: 6px solid #8E24AA !important;
+// }
+
+// .borda-cartao-gold{
+//   border-left: 6px solid #C19721 !important;
+// }
+
+// .borda-cartao-privatelabel{
+//   border-left: 6px solid #D81B60 !important;
+// }
+
+// .borda-cartao-saude{
+//   border-left: 6px solid #E53935 !important;
+// }
+*/
+
+.borda-cartao-aam{ border-left: 6px solid #0169BE !important;}                          
+.borda-cartao-abastecimento{ border-left: 6px solid #AEEA00 !important;}               
+.borda-cartao-alimentacao{ border-left: 6px solid #E65100 !important;}                 
+.borda-cartao-alimentacaochip{ border-left: 6px solid #E65100 !important;}             
+.borda-cartao-alimentacaosindpatronal{ border-left: 6px solid #E65100 !important;}    
+.borda-cartao-aspcardmontemor-aspmmm{ border-left: 6px solid #0169BE !important;}  
+.borda-cartao-bonus{ border-left: 6px solid #AEEA00 !important;}                        
+.borda-cartao-bonuscombustivel{ border-left: 6px solid #AEEA00 !important;}            
+.borda-cartao-card{ border-left: 6px solid #01579B !important;}                         
+.borda-cartao-cardcredito{ border-left: 6px solid #03A9F4 !important;}                 
+.borda-cartao-comb{ border-left: 6px solid #FF6F00 !important;}                         
+.borda-cartao-combustivel{ border-left: 6px solid #FF6F00 !important;}                  
+.borda-cartao-combustivel-frota{ border-left: 6px solid #01579B !important;}           
+.borda-cartao-conveniencecard{ border-left: 6px solid #12A89D !important;}             
+.borda-cartao-convenio{ border-left: 6px solid #006064 !important;}                     
+.borda-cartao-conveniochip{ border-left: 6px solid #006064 !important;}                
+.borda-cartao-conveniosenha{ border-left: 6px solid #006064 !important;}               
+.borda-cartao-credito{ border-left: 6px solid #03A9F4 !important;}                      
+.borda-cartao-creditosaude{ border-left: 6px solid #E53935 !important;}                
+.borda-cartao-debito{ border-left: 6px solid #01579B !important;}                       
+.borda-cartao-desconto{ border-left: 6px solid #01579B !important;}                    
+.borda-cartao-docelaralimentacao{ border-left: 6px solid #E65100 !important;}         
+.borda-cartao-docelarconvenio{ border-left: 6px solid #006064 !important;}           
+.borda-cartao-escolar{ border-left: 6px solid #01579B !important;}                      
+.borda-cartao-farmacia{ border-left: 6px solid #E53935 !important;}                     
+.borda-cartao-farmaciasenha{ border-left: 6px solid #E53935 !important;}               
+.borda-cartao-fidelidade{ border-left: 6px solid #8E24AA !important;}                   
+.borda-cartao-fidelidadesaude{ border-left: 6px solid #E53935 !important;}             
+.borda-cartao-frota{ border-left: 6px solid #01579B !important;}                        
+.borda-cartao-frotapagrede{ border-left: 6px solid #01579B !important;}               
+.borda-cartao-nutrifamilialaguna{ border-left: 6px solid #B71C1C !important;}         
+.borda-cartao-nutrileitelaguna{ border-left: 6px solid #B71C1C !important;}           
+.borda-cartao-nutriribas{ border-left: 6px solid #B71C1C !important;}                  
+.borda-cartao-pospago{ border-left: 6px solid #E53935 !important;}                    
+.borda-cartao-premium{ border-left: 6px solid #000000 !important;}                      
+.borda-cartao-privlabelcomsenha{ border-left: 6px solid #D81B60 !important;}        
+.borda-cartao-privlabelsemsenha{ border-left: 6px solid #D81B60 !important;}        
+.borda-cartao-privatelabel{ border-left: 6px solid #D81B60 !important;}               
+.borda-cartao-refeicao{ border-left: 6px solid #B71C1C !important;}                    
+.borda-cartao-saude{ border-left: 6px solid #E53935 !important;}                       
+.borda-cartao-saude+credito{ border-left: 6px solid #E53935 !important;}             
+.borda-cartao-servcardhortolandia-asp{ border-left: 6px solid #0169BE !important;}  
+.borda-cartao-servcardriodaspedras{ border-left: 6px solid #0169BE !important;}     
+.borda-cartao-sindcapcard-sspmcr{ border-left: 6px solid #0169BE !important;}       
+.borda-cartao-sindvigilante{ border-left: 6px solid #0169BE !important;}               
+.borda-cartao-transporte{ border-left: 6px solid #01579B !important;}                   
+.borda-cartao-valecompras{ border-left: 6px solid #D81B60 !important;}                 
+.borda-cartao-valepresente{ border-left: 6px solid #D81B60 !important;}                
+.borda-cartao-vivaleite{ border-left: 6px solid #B71C1C !important;}                   
+.borda-cartao-voucher{ border-left: 6px solid #B71C1C !important;}                     
+.borda-cartao-voucherchip{ border-left: 6px solid #B71C1C !important;}      
+
+
+.rc-detalhe{
+
+  ion-col{
+    background-color: #F9FAFB;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+}
+
+/*Texto*/
+.numero-cartao{
+		font-size: 26px !important;
+}
+@media screen and (max-width: 320px) {
+    .numero-cartao {
+
+       font-size: 22px !important;
+
+    }
+}
+
+.maiusculo{
+
+  text-transform: uppercase !important;
+
+}
+
+.fonte-valor{
+    font-size: 130px !important;
+}
+@media screen and (max-width: 600px) {
+    .fonte-valor{
+
+       font-size: 85px !important;
+
+    }
+}
+@media screen and (max-width: 435px) {
+    .fonte-valor{
+
+       font-size: 75px !important;
+
+    }
+}
+@media screen and (max-width: 360px) {
+    .fonte-valor{
+
+       font-size: 70px !important;
+
+    }
+}
+@media screen and (max-width: 320px) {
+    .fonte-valor{
+
+       font-size: 40px !important;
+
+    }
+}
+
+
+.fonte-valor-senha-cartao{
+    font-size: 85px !important;
+}
+@media screen and (max-width: 600px) {
+    .fonte-valor-senha-cartao{
+
+       font-size: 42px !important;
+
+    }
+}
+@media screen and (max-width: 435px) {
+    .fonte-valor-senha-cartao{
+
+       font-size: 36px !important;
+
+    }
+}
+@media screen and (max-width: 360px) {
+    .fonte-valor-senha-cartao{
+
+       font-size: 34px !important;
+
+    }
+}
+@media screen and (max-width: 320px) {
+    .fonte-valor-senha-cartao{
+
+       font-size: 22px !important;
+
+    }
+}
+
+.fonte-periodo{
+
+    font-size: 12px !important;
+    font-weight: 400;
+    color: #FFFFFF;      
+}
+
+/*Cores*/
+
+/*outros */
+hr {
+    display: block !important;
+    height: 1px !important;
+    border: 0 !important;
+    border-top: 1px solid #dddddd !important;
+    margin: 1em 0 !important;
+    padding: 0 !important;
+}
+
+/*toolbar*/
+
+.teclado{
+  
+  height: 250px !important;
+}
+
+/*Mapas*/
+#map_canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/*Teclado virutal*/
+.posicaoTeclado{
+
+  position: absolute !important;
+  bottom: 17% !important;
+  width: 100% !important;
+
+}
+
+/*Botão atualizar e adicionar cartão*/
+.posicaoBtnBottom{
+
+  bottom: 17% !important;
+
+}
+/*Toast*/
+ion-toast.success .toast-wrapper {
+	background: #69BB7B;
+}
+
+ion-toast.error .toast-wrapper {
+	background: #f53d3d;
+}
+
+ion-toast.notice .toast-wrapper {
+  background: #ff6f00;
+}

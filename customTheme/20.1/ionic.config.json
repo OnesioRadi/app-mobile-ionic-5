@@ -1,0 +1,8 @@
+{
+  "name": "ConveniencePay",
+  "app_id": "082040bd",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

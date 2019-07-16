@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ titlePage }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+   </ion-buttons>
+  </ion-navbar>
+  <ion-segment [(ngModel)]="segmentTab" (ionChange)="segmentChanged($event, segmentTab)" color="{{ 'CG_COR_PRIMARIA' | translate }}">
+      <ion-segment-button value="extrato-aberto" [hidden]="d.pg_extrato_escondeExtratoAberto">
+        {{ 'PG_EXTRATO_LABEL_SEGMENT_ABERTO' | translate }}
+      </ion-segment-button>
+      <ion-segment-button value="extrato-ultimo" [hidden]="d.pg_extrato_escondeExtratoUltimo">
+        {{ 'PG_EXTRATO_LABEL_SEGMENT_ULTIMO' | translate }}
+      </ion-segment-button>
+      <ion-segment-button value="extrato-informado" [hidden]="d.pg_extrato_escondeExtratoInformado">
+        {{ 'PG_EXTRATO_LABEL_SEGMENT_INFORMADO' | translate }}
+      </ion-segment-button>      
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="segmentTab">
+    <ion-item-group *ngSwitchCase="'extrato-aberto'" [hidden]="d.pg_extrato_escondeExtratoAberto">
+      <ion-list>
+        <ion-item-divider color="light">
+       	  <h2 class="negrito">{{ 'PG_EXTRATO_LABEL_DATA_EXTABELECIMENTO' | translate }}</h2>
+    		  <ion-note item-end class="texto-preto negrito">
+    			 {{ 'PG_EXTRATO_LABEL_VALOR' | translate }}
+    		  </ion-note>
+       	</ion-item-divider>
+    		<ion-item ion-item *ngFor="let openS of openStatement">
+  		    <h2>{{ openS.vencimento }}</h2>
+      		<p>{{ openS.prestador }}</p>
+      		<ion-note item-end class="negrito texto-preto">{{ openS.valor }}</ion-note>
+    		</ion-item>
+		  </ion-list>
+    </ion-item-group>
+    <ion-item-group *ngSwitchCase="'extrato-ultimo'" [hidden]="d.pg_extrato_escondeExtratoUltimo">
+      <ion-list>
+        <ion-item-divider color="light">
+          <h2 class="negrito">{{ 'PG_EXTRATO_LABEL_DATA_EXTABELECIMENTO' | translate }}</h2>
+          <ion-note item-end class="texto-preto negrito">
+           {{ 'PG_EXTRATO_LABEL_VALOR' | translate }}
+          </ion-note>
+        </ion-item-divider>
+        <ion-item ion-item *ngFor="let openS of openStatement">
+          <h2>{{ openS.vencimento }}</h2>
+          <p>{{ openS.prestador }}</p>
+          <ion-note item-end class="negrito texto-preto">{{ openS.valor }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-item-group>
+    <ion-item-group *ngSwitchCase="'extrato-informado'" [hidden]="d.pg_extrato_escondeExtratoInformado">
+      <ion-list>
+        <ion-item-divider color="light">
+          <ion-label>Mês/Ano</ion-label>
+          <ion-select cancelText="Cancelar" okText="Visualizar" [(ngModel)]="mesSelecionado" (ngModelChange)="genformedStatement()">
+            <ion-option *ngFor="let mesAno of mesesExtrato" value="{{ mesAno }}">
+                  {{mesAno}}
+            </ion-option>
+          </ion-select>
+        </ion-item-divider>
+        <ion-item-divider color="light">
+          <h2 class="negrito">{{ 'PG_EXTRATO_LABEL_DATA_EXTABELECIMENTO' | translate }}</h2>
+          <ion-note item-end class="texto-preto negrito">
+           {{ 'PG_EXTRATO_LABEL_VALOR' | translate }}
+          </ion-note>
+        </ion-item-divider>
+        <ion-item ion-item (click)="goToStatementDetail($event, openS)" *ngFor="let openS of openStatement">
+          <h2>{{ openS.vencimento }}</h2>
+          <p>{{ openS.prestador }}</p>
+          <ion-note item-end class="negrito texto-preto">{{ openS.valor }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-item-group>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>Total: {{ totalVendas }}</ion-title>
+	    <ion-buttons end>
+        <button ion-button>
+          {{ total | currencyreal }}
+        </button>          
+	   </ion-buttons>
+	   <ion-buttons class="fonte-periodo">
+		    {{ periodo }}
+	   </ion-buttons>	
+  </ion-toolbar>
+</ion-footer>

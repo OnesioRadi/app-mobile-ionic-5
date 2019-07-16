@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ pageTitle }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="feedback">
+  <ion-item-group>
+		<ion-item-divider light text-wrap class="negrito">			
+				Aqui você pode enviar seu feedback à nossa equipe, para que possamos melhorar esse aplicativo.			
+		</ion-item-divider>
+	 	<ion-item>
+			<ion-label>Nome*</ion-label>
+	    	<ion-input type="text" [(ngModel)]="name"></ion-input>
+	  	</ion-item>
+	 	<ion-item>
+			<ion-label>Nº do cartão</ion-label>
+	    	<ion-input type="tel" [(ngModel)]="cardNumber" (keyup)="cardFormat($event)" maxlength="21"></ion-input>
+	  	</ion-item>
+	 	<ion-item>
+			<ion-label>E-mail*</ion-label>
+	    	<ion-input type="email" [(ngModel)]="email"></ion-input>
+	  	</ion-item>
+	  	<ion-item>
+			<ion-label>Celular*</ion-label>
+	    	<ion-input type="tel" [(ngModel)]="phone" (keyup)="phoneFormat($event)" maxlength="15"></ion-input>
+	  	</ion-item>
+	  	<ion-item>
+		    <ion-label>Assunto*</ion-label>
+		    <ion-select [(ngModel)]="content" okText="Ok" cancelText="Cancelar">
+		      <ion-option value="0">Selecione um assunto</ion-option>
+		      <ion-option value="Dúvidas">Dúvidas</ion-option>
+		      <ion-option value="Sugestões">Sugestões</ion-option>
+		      <ion-option value="Reportar um erro">Reportar um erro</ion-option>
+		      <ion-option value="Outros">Outros</ion-option>
+		    </ion-select>
+        </ion-item>
+	  	<ion-item>
+		  <ion-label fixed>Mensagem*</ion-label>
+		  <ion-textarea [(ngModel)]="msg"></ion-textarea>
+		</ion-item>
+		<ion-item>
+			<button ion-button block large color="{{ 'CG_COR_SECUNDARIA' | translate }}" (click)="validates()">Enviar</button>
+		</ion-item>	
+	</ion-item-group>
+</ion-content>
+

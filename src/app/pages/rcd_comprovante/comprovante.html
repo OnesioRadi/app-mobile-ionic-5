@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}" hideBackButton>
+    <ion-title>{{ pageTitle }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-card class="{{situation}}">
+      <ion-row>
+        <ion-col width-20>
+          <img height="85px" src="{{situationIcon}}">
+        </ion-col>
+        <ion-col width-80>
+          <h1>{{respMsg}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h1>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="topo-cartao-amarelo">
+			<img src="{{ ticketTop }}">
+    </ion-card>	 
+
+    <ion-card class="cartao-amarelo">      
+      <ion-row [hidden]="agree">
+        <ion-col width-100>
+          <ion-textarea class="cuopom-area" readonly rows="11" [(ngModel)]="mailCoupon"></ion-textarea>
+        </ion-col>
+      </ion-row>
+
+      <ion-row [hidden]="degree">
+        <ion-col width-100 class="texto-centro">
+          <h1>Não foi possível realizar a venda.</h1>
+        </ion-col>
+      </ion-row>     
+    </ion-card> 
+
+    <ion-card class="base-cartao-amarelo">
+      <img src="{{ticketBottom}}">
+    </ion-card> 
+  </ion-item-group>
+
+	<ion-grid>
+    <ion-row>		  	
+      <ion-col width-50 [hidden]="agree">
+        <button ion-button block large primary (click)="mailSend()">
+          Enviar
+        </button>
+      </ion-col>
+      <ion-col width-50  class="texto-centro">
+        <button ion-button block large primary (click)="close()">         
+          Finalizar  
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>			  
+</ion-content>

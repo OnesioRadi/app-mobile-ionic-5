@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}" hideBackButton>
+    <ion-title>{{ pageTitle }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-segment [(ngModel)]="relation" secondary>
+    <ion-segment-button value="email">
+      E-mail
+    </ion-segment-button>
+    <!-- <ion-segment-button value="sms" disabled="true">
+      SMS
+    </ion-segment-button> -->
+  </ion-segment>
+
+  <div [ngSwitch]="relation">
+    <ion-list *ngSwitchCase="'email'">  
+      <ion-item-group>
+        <ion-item-divider light class="negrito">
+          Enviar cupom por e-mail
+        </ion-item-divider>
+        <ion-item>
+          <ion-label>E-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="userMail"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button ion-button block large primary (click)="sendMail()">Enviar</button>
+        </ion-item> 
+        <ion-item>
+          <button ion-button block large primary (click)="close()">Finalizar</button>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+    <ion-list *ngSwitchCase="'sms'">
+      <ion-item-group>
+        <ion-item-divider light class="negrito">
+          Enviar cupom por SMS
+        </ion-item-divider>
+        <ion-item>
+          <ion-label>Celular</ion-label>
+            <ion-input placeholder="ex: (11) 99999-8888" type="tel" [(ngModel)]="userPhone" (keyup)="phoneFormat($event)" maxlength="15"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button block large primary (click)="smsSend()">Enviar</button>
+          <button block large primary (click)="close()">Finalizar</button>
+        </ion-item> 
+      </ion-item-group>
+    </ion-list>
+  </div>
+</ion-content>

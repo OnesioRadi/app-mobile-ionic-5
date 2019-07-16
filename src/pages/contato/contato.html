@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ 'PG_CONTATO_TITULO' | translate }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item class="texto-centro">
+	  	<img src="{{ 'CG_LOGO_ORIGINAL' | translate }}" class="logo-contato">
+	</ion-item>	
+	<ion-item>
+	    <ion-icon name="people" item-left large color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <h2 class="truncate">{{ nameCompany }}</h2>
+	    <p>Administradora de Cartões</p>
+	</ion-item>
+  	<ion-item>
+		<ion-icon name="pin" item-left large color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+		<h2>{{ publicPlace }} {{ address }}</h2>
+		<h2>{{ number }}</h2>
+		<p>{{ neighborhood }}</p>
+		<p>{{ city }}-{{ uf }} {{ cep }}</p>
+  	</ion-item>
+	<ion-item [hidden]="hidePhone">
+	    <ion-icon name="call" item-left large color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <h1><a class="sem-sublinhado" href="tel:{{ phone }}" >{{ phone }}</a></h1>
+	</ion-item>
+	<ion-item [hidden]="hidefax">
+	    <ion-icon name="call" item-left large color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <h1><a class="sem-sublinhado" href="tel:{{ fax }}">{{ fax }}</a></h1>
+	</ion-item>
+	<ion-item [hidden]="hideWa">
+	    <ion-icon class="whatsapp" ios="logo-whatsapp" md="logo-whatsapp" item-left large></ion-icon>
+	    <h1><a class="sem-sublinhado" href="whatsapp://tel:{{wa}}">{{nwa}}</a></h1>
+	</ion-item>
+	<ion-item [navPush]="sugestoes">
+	    <ion-icon name="mail" item-left large color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <button ion-button block outline large color="{{ 'CG_COR_PRIMARIA' | translate }}" (click)="goToChat()">Enviar mensagem</button>
+	</ion-item>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ 'PG_LOGIN_TITULO' | translate }}</ion-title>
+    <ion-buttons end>
+      <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <ion-item-group>
+  <ion-list padding>
+
+    <ion-item>
+      <ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>{{ 'PG_LOGIN_INPUT_NUMERO_CARTAO' | translate }}</ion-label>
+      <ion-input type="tel" placeholder="digite apenas números" maxlength="18" [(ngModel)]="cnpjCpf" (keyup)="maskInput($event)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>{{ 'PG_LOGIN_INPUT_NEU' | translate }}</ion-label>
+      <ion-input type="tel" pattern="[0-9]*" placeholder="digite o número do estabelecimento"  maxlength="10" [(ngModel)]="neu" (keyup)="neuCheck()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Permanecer conectado</ion-label>
+      <ion-toggle [(ngModel)]="loginRCRemember" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <button disabled={{disabledButton}} ion-button block large color="{{ 'CG_COR_PRIMARIA' | translate }}" (click)="login()">
+        {{ 'PG_LOGIN_BTN_ENTRAR' | translate }}
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-item-group>
+
+</ion-content>

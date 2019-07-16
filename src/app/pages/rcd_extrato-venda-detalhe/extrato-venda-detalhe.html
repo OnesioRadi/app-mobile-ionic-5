@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ titlePage }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color="{{ 'CG_COR_SECUNDARIA' | translate }}">
+    <ion-title class="texto-centro">{{ extractItem.valor | currencyreal }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>  
+  <ion-list>      
+    <ion-item>
+      <ion-icon name="calendar" item-left large></ion-icon>
+      <h2 class="truncate">Data</h2>
+      <p>{{ extractItem.vencimento }}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="time" item-left large></ion-icon>
+      <h2 class="truncate">Hora</h2>
+      <p>{{extractItem.hora}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pulse" item-left large></ion-icon>
+      <h2 class="truncate">Transação</h2>
+      <p>{{extractItem.transacao}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="cash" item-left large></ion-icon>
+      <h2 class="truncate">Valor</h2>
+      <p>{{extractItem.valor | currency:'BRL':true:'1.2-2'}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="information-circle" item-left large></ion-icon>
+      <h2 class="truncate">Parcela</h2>
+      <p>{{extractItem.parcela}}/{{extractItem.totalparcelas}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="person" item-left large></ion-icon>
+      <h2 class="truncate">Portador do cartão</h2>
+      <p class="maiusculo truncate">{{extractItem.usuario}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pricetag" item-left large></ion-icon>
+      <h2 class="truncate">Tipo do cartão</h2>
+      <p class="maiusculo truncate">{{extractItem.descricao_cartao}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="briefcase" item-left large></ion-icon>
+      <h2 class="truncate">Empresa do portador</h2>
+      <p class="maiusculo truncate">{{extractItem.nomecliente}}</p>
+    </ion-item>		
+  </ion-list> 
+</ion-content>
+  

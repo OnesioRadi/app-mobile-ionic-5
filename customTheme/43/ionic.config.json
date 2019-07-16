@@ -1,0 +1,8 @@
+{
+  "name": "Sindspam",
+  "app_id": "e3d4dd6c",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

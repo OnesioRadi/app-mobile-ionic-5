@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ pageTitle }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+      <ion-grid>
+        <ion-card class="cartao-branco borda-cartao-padrao-41">
+           <ion-row align-items-center>
+              <ion-col col-4 justify-content-left>
+          	    <img src="{{ 'CG_LOGO_ORIGINAL' | translate }}" class="logo-cartao">
+              </ion-col>	
+              <ion-col col-8 class="texto-cartao texto-direita">
+          	    {{ 'PG_SENHA-CARTAO_CARD_LABEL' | translate }} 
+              </ion-col>
+           </ion-row>
+           <ion-row align-items-center justify-content-center>
+            <ion-col col-8 class="fonte-senha texto-centro" [class.active]="focus === 'passwordCard'" (touchend)="setFocus('passwordCard')">
+		          <ion-input readonly [(ngModel)]="passwordCard" type="number" maxlength="6" placeholder="******" class="texto-centro"></ion-input>
+            </ion-col>
+            <ion-col col-4>
+                <button ion-button outline item-end icon-left color="{{ 'CG_COR_PRIMARIA' | translate }}" (click)="clear()">
+                  Limpar
+                </button>
+            </ion-col>
+           </ion-row>   
+        </ion-card>
+      </ion-grid>
+    </ion-item-group>
+</ion-content>
+
+<ion-digit-keyboard
+    [align]="keyboardSettings.align"
+    [width]="keyboardSettings.width"
+    [visible]="keyboardSettings.visible"
+    [leftActionOptions]="keyboardSettings.leftActionOptions"
+    [rightActionOptions]="keyboardSettings.rightActionOptions"
+    [roundButtons]="keyboardSettings.roundButtons"
+    [showLetters]="keyboardSettings.showLetters"
+    [swipeToHide]="keyboardSettings.swipeToHide"
+    [theme]="keyboardSettings.theme"
+></ion-digit-keyboard>

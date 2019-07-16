@@ -1,0 +1,5 @@
+page-recarga-celular {
+  input[type=tel] {
+    -webkit-text-security: disc !important;
+  }
+}

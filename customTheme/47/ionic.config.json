@@ -1,0 +1,8 @@
+{
+  "name": "FaceCard",
+  "app_id": "5fa2ec70",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

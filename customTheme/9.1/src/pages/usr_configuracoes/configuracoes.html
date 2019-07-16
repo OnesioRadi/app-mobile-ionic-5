@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'PG_CONFIGURACOES_TITULO' | translate }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <button ion-item (click)="clearLocalData()">
+      <ion-icon color="{{ 'CG_COR_PRIMARIA' | translate }}" name="settings" item-left ></ion-icon>
+        {{ 'PG_CONFIGURACOES_BTN_LIMPAR_CONFIGURACOES' | translate }}
+  </button>
+</ion-content>

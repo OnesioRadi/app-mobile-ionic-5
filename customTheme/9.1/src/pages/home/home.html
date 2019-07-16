@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>
+      {{ 'PG_HOME_TITULO' | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item-divider light>
+			<ion-grid>
+				<ion-row align-items-center justify-content-center>
+					<ion-col col-6>
+						<img width="115" height="auto" src="{{ 'CG_LOGO_ORIGINAL' | translate }}">
+					</ion-col>
+					<ion-col col-6>
+						<h1>{{ 'PG_HOME_SUBTITULO' | translate }}</h1>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item-divider>
+		<button ion-item [hidden]="d.pg_home_escondeLinkUsuario" (click)="goToUserLogin()">
+			<button ion-button icon-only large item-left clear>
+				<ion-icon name="person" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+			</button>
+			<h2>{{ 'PG_HOME_LABEL_LINK_USUARIO' | translate }}</h2>
+			<p>{{ 'PG_HOME_SUBLABEL_LINK_USUARIO' | translate }}</p>
+			<button ion-button icon-only large item-right clear>
+				<ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+			</button>
+		</button>
+		<button ion-item [hidden]="d.pg_home_escondeLinkRedeCredenciada" (click)="goToMerchantLogin()">
+			<button ion-button icon-only large item-left clear>
+				<ion-icon name="home" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+			</button>
+			<h2>{{ 'PG_HOME_LABEL_LINK_REDECREDENCIADA' | translate }}</h2>
+			<p>{{ 'PG_HOME_SUBLABEL_LINK_REDECREDENCIADA' | translate }}</p>
+			<button ion-button icon-only large item-right clear>
+				<ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+			</button>
+		</button>
+    <button ion-item [hidden]="d.pg_home_escondeLinkContato" (click)="goToContact()">
+     <button ion-button icon-only large item-left clear>
+      <ion-icon name="mail" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+    </button>
+    <h2>{{ 'PG_HOME_LABEL_LINK_CONTATO' | translate}}</h2>
+    <p>{{ 'PG_HOME_SUBLABEL_LINK_CONTATO' | translate }}</p>
+    <button ion-button icon-only large item-right clear>
+      <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+    </button>
+  </button>
+</ion-list>
+</ion-content>

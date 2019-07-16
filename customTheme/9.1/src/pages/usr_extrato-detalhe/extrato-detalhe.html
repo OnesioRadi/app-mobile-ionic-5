@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ 'PG_EXTRATO_DETALHE_TITLE' | translate }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+   </ion-buttons>
+  </ion-navbar> 
+  <ion-toolbar color="{{ 'CG_COR_SECUNDARIA' | translate }}">    
+    <ion-label class="texto-centro texto-branco negrito font-toolbar">R$ {{ saleDetail.valor }}</ion-label>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content class="extrato-detalhe">
+  <ion-list>
+    <ion-item>
+      <ion-icon name="card" item-left></ion-icon>     
+      <p>Número do cartão</p>
+      <h3>{{saleDetail.numerocartao}}</h3>          
+    </ion-item>
+    <ion-item>
+      <ion-icon name="basket" item-left></ion-icon>
+      <p>Estabelecimento</p>  
+      <h3>{{saleDetail.prestador}}</h3>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="calendar" item-left></ion-icon>
+      <p>Data</p>  
+      <h3>{{saleDetail.vencimento}}</h3>
+    </ion-item>
+    <ion-item *ngIf="saleDetail.totalparcelas != null">
+      <ion-icon name="albums" item-left></ion-icon>
+      <p>Parcelas</p>  
+      <h3>{{saleDetail.parcela}}/{{saleDetail.totalparcelas}}</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+	<ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+		<ion-title>Recarga Celular</ion-title>
+		<ion-buttons end>
+			<img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+
+
+	<ion-item-group>
+		<ion-list padding>
+			<h3 ion-text color="{{ 'CG_COR_PRIMARIA' | translate }}" class="texto-centro">{{ title }}</h3>
+            <br>
+			<ion-item>
+				<ion-icon name="phone-portrait" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}" p></ion-icon>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>Digite Telefone</ion-label>
+				<ion-input  placeholder="(00) 9999-0000" maxlength="11" [(ngModel)]="newPhone"></ion-input>
+<!--			<ion-input type="tel" placeholder="(00) 9999-0000" maxlength="11" [(ngModel)]="newPhone"></ion-input>-->
+			</ion-item>
+
+			<ion-item>
+				<ion-icon name="phone-portrait" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}" p></ion-icon>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>Confirme Telefone</ion-label>
+				<ion-input  placeholder="(00) 9999-0000" maxlength="11" [(ngModel)]="confirmPhone"></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-icon name="wifi" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}" p></ion-icon>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>Seleciona uma Operadora</ion-label>
+
+				<ion-select cancelText="Cancelar" okText="Visualizar" [(ngModel)]="OperadoraSelecionado" (ngModelChange)="SelecTelecom(OperadoraSelecionado)">
+					<ion-option *ngFor="let operadora of return_telecom" value="{{ operadora.produto }}">
+						{{operadora.produto}}
+					</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item [hidden]="hideSelecTelecomValor">  
+				<ion-icon name="logo-usd" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}" p></ion-icon>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>Selecione um Valor</ion-label>				
+				<ion-select cancelText="Cancelar" okText="Visualizar" [(ngModel)]="ValorSelecionado" (ngModelChange)="SelecTelecomValor()">
+					<ion-option *ngFor="let pacote of return_telecom_valor" value="{{ pacote.valor }}">
+						{{pacote.valor/100 | currencyreal}}
+					</ion-option>
+				</ion-select>
+			</ion-item>
+
+		
+			<ion-item [hidden]="hideButtoncharger">
+				<button ion-button block large color="{{ 'CG_COR_PRIMARIA' | translate }}" (click)="recargaCelular()">{{
+					'PG_RECARGA-CELULAR_BTN_RECARREGAR' | translate }}</button>
+			</ion-item>
+		</ion-list>
+	</ion-item-group>
+</ion-content>

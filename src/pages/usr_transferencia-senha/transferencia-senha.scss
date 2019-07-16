@@ -1,0 +1,5 @@
+﻿page-transferencia-senha {
+  input[type=number] {
+    -webkit-text-security: disc !important;
+  }
+}

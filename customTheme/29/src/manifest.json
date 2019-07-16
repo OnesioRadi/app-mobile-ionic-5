@@ -1,0 +1,13 @@
+{
+  "name": "Acspmesp",
+  "short_name": "Acspmesp",
+  "start_url": "index.html?empresa=29",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#262561",
+  "theme_color": "#262561"
+}

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ titlePage }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>      	
+  	<ion-list>
+    	  <ion-item>
+    	    <ion-label>Mês/Ano</ion-label>
+    	    <ion-select [(ngModel)]="selectMonth" cancelText="Cancelar" okText="Visualizar" (ionChange)="extractGenerate()">
+    	      <ion-option *ngFor="let monthYear of extractMonths" value="{{ monthYear }}">
+               {{monthYear}}
+            </ion-option>
+    	    </ion-select>
+    	  </ion-item>
+        <h3 [hidden]="showGenerate" class="texto-centro"><ion-spinner></ion-spinner> Gerando...</h3>
+        <div [hidden]="showExtract">
+          <button ion-item>   
+            <ion-row class="texto-centro negrito">
+              <ion-col width-33 class="texto-esquerda truncate"><ion-icon name="calendar" item-left></ion-icon>Data</ion-col>
+              <ion-col width-33 class="texto-centro truncate"><ion-icon name="basket" item-left></ion-icon>Transação</ion-col>
+              <ion-col width-33 class="texto-direita truncate"><ion-icon name="cash" item-left></ion-icon>Valor</ion-col>
+            </ion-row>     
+          </button>
+          <button ion-item *ngFor="let extractItem of extract" (click)="goToExtractDetail(extractItem)">
+            <ion-row>
+              <ion-col width-33 class="texto-esquerda truncate">{{extractItem.vencimento}}</ion-col>
+              <ion-col width-33 class="texto-centro truncate">{{extractItem.transacao}}</ion-col>
+              <ion-col width-33 class="texto-direita truncate">{{extractItem.valor  | currencyreal }}</ion-col>
+            </ion-row>             
+          </button>
+        </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>Total: {{salesTotal}}</ion-title>
+    <ion-buttons end>
+      <button ion-button>
+        {{ total | currencyreal }}
+      </button>
+    </ion-buttons>
+  </ion-toolbar>      
+</ion-footer>
+  
+

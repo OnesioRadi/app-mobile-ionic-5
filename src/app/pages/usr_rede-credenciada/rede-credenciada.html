@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ titlePage }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div [ngSwitch]="segmentTab">
+    	<ion-item-group *ngSwitchCase="'rc-proximidade'">
+    		<h4 class="texto-centro" *ngIf="loadLocation == true"><ion-spinner></ion-spinner> Buscando sua localização...</h4>
+        <button ion-item *ngFor="let r of rc" (click)="modalRcDetail($event, r)">
+			    <ion-thumbnail item-left (press)="addFavorite(r)" *ngIf="r.r_ramo_ativ != null && r.r_qtde_ramo_atividade == 1">
+			      <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/{{ r.r_ramo_ativ }}.svg">
+          </ion-thumbnail>
+          
+			    <ion-thumbnail item-left (press)="addFavorite(r)" *ngIf="r.r_ramo_ativ != null && r.r_qtde_ramo_atividade > 1">
+			      <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/OUTROS.svg">
+          </ion-thumbnail>
+
+          <ion-thumbnail item-left (press)="addFavorite(r)" *ngIf="r.r_ramo_ativ == null">
+            <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/OUTROS.svg">
+          </ion-thumbnail>
+		    	<h3 class="truncate">{{ r.r_nome_fantasia }}</h3>
+		    	<p class="truncate">{{ r.r_segmento }}</p>
+		    	<p class="truncate">
+		    		<strong>CARTÕES ACEITOS:</strong>
+		    		{{ r.r_tipo_cartao }}
+		    	</p>
+		    	<p class="truncate">
+		    		<span class="porcentagem-desconto" *ngIf="r.r_cash_back_dia != null">
+		    			{{ r.r_cash_back_dia }}% cash back
+		    		</span>
+		    		<ion-icon name="pin"></ion-icon>
+		    		{{ r.r_distancia }}
+		    	</p>
+		  	</button>
+			<button ion-button block large padding color="{{ 'CG_COR_PRIMARIA' | translate }}" *ngIf="btnViewMore == true" (click)="viewMore()">
+				Ver mais
+			</button>
+    	</ion-item-group>
+    	<ion-item-group *ngSwitchCase="'rc-favoritos'">
+        <div padding class="texto-centro" *ngIf="favoriteRc == null"> 
+          <ion-icon name="heart" color="{{ 'CG_COR_PRIMARIA' | translate }}" style="zoom:3.0;"></ion-icon>  
+          <h4 class="neutra">Você ainda não adicionou nenhuma rede aos favoritos</h4>
+        </div>
+    		<button ion-item *ngFor="let r of favoriteRc" (click)="modalRcDetail($event, r)">
+          <ion-thumbnail item-left (press)="removeFavorite(r)">
+            <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/{{ r.r_ramo_ativ }}.svg">
+          </ion-thumbnail>
+
+          <h3 class="truncate">{{ r.r_nome_fantasia }}</h3>
+          <p class="truncate">{{ r.r_segmento }}</p>
+          <p class="truncate">
+            <strong>CARTÕES ACEITOS:</strong>
+            {{ r.r_tipo_cartao }}
+          </p>
+          <p class="truncate">
+            <span class="porcentagem-desconto" *ngIf="r.r_cash_back_dia != null">
+              {{ r.r_cash_back_dia }}% cash back
+            </span>
+            <ion-icon name="pin"></ion-icon>
+            {{ r.r_distancia }}
+          </p>         
+          
+        </button>        
+    	</ion-item-group>
+    	<ion-item-group *ngSwitchCase="'rc-busca-avancada'">
+    		  
+        <ion-item>
+          <ion-label>Estado</ion-label>
+          <ion-select [(ngModel)]="uf" (ionChange)="CityChanged($event, segmentTab)" okText="Selecionar" cancelText="Cancelar">
+            <ion-option value="0">SELECIONE O ESTADO</ion-option> 
+            <ion-option  value="{{ u.r_sigla }}" *ngFor="let u of ufs">
+              {{ u.r_estado }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cidade</ion-label>
+          <ion-select [(ngModel)]="city" (ionChange)="SegmentChanged($event, segmentTab)"  okText="Selecionar" cancelText="Cancelar">
+            <ion-option value="0">SELECIONE A CIDADE</ion-option>
+
+            <ion-option value="{{ c.r_id_cr_cidade }}" *ngFor="let c of citys">
+              {{ c.r_cidade }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Segmento</ion-label>
+            <ion-select [(ngModel)]="segment" okText="Selecionar" cancelText="Cancelar">
+            <ion-option value="0">TODOS</ion-option>
+            <ion-option  value="{{ s.r_id_segmento }}" *ngFor="let s of segments">
+                {{s.r_segmento}}              
+            </ion-option>   
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <button ion-button block large (click)="goToRcList()">Pesquisar</button>
+        </ion-item> 
+
+    	</ion-item-group>
+    </div>	
+</ion-content>
+
+<ion-footer no-border>
+  <ion-segment [(ngModel)]="segmentTab" (ionChange)="segmentChanged($event, segmentTab)" color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-segment-button value="rc-proximidade">
+        <ion-icon name="basket"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="rc-favoritos">
+        <ion-icon name="heart"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="rc-busca-avancada">
+        <ion-icon name="search"></ion-icon>
+      </ion-segment-button>      
+  	</ion-segment>
+</ion-footer>

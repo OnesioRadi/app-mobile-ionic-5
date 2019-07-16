@@ -1,0 +1,8 @@
+{
+  "name": "Acspmesp",
+  "app_id": "15cc87fe",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\customTheme",
+    "\\customTheme\\100",
+    "\\customTheme\\100\\src",
+    "\\customTheme\\100\\src\\components",
+    "\\customTheme\\100\\src\\components\\ion-digit-keyboard",
+    "\\customTheme\\100\\src\\components\\ion-digit-keyboard\\components",
+    "\\customTheme\\100\\src\\components\\ion-digit-keyboard\\components\\ion-digit-keyboard-cmp",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\chat"
+  ],
+  "SelectedNode": "\\src\\app\\pages\\chat\\chat.ts",
+  "PreviewInSolutionExplorer": false
+}

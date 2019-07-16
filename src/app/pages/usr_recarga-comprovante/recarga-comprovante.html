@@ -1,0 +1,435 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}" hideBackButton>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-card class="{{situation}}">
+      <ion-row>
+        <ion-col col-4 padding-top="5px" >
+          <img height="30px" src="{{situationIcon}}">
+        </ion-col>
+        <ion-col col-8 padding-top="5px" >
+          <h5>{{respMsg}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h5>
+        </ion-col>
+			</ion-row>			
+    </ion-card>
+
+    <ion-card class="topo-cartao-amarelo">
+			<img src="{{ ticketTop }}">
+    </ion-card>	 
+
+    <ion-card class="cartao-amarelo">      
+      <!--<ion-row [hidden]="agree">
+        <ion-col width-100>
+          <ion-textarea class="cuopom-area" readonly rows="11" [(ngModel)]="mailCoupon"></ion-textarea>
+        </ion-col>
+			</ion-row>	
+		-->
+
+		<ion-row>
+        <ion-col col-12  text-center center  >
+						<h2><b>Transação realizada com sucesso!
+								<span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+                </b>
+						</h2>
+        </ion-col>       
+    </ion-row>			     
+
+		<ion-row>
+        <ion-col col-6  text-center center >
+						<h3>Data: {{ data }} 
+								<span [hidden]="agree"></span>
+								<span [hidden]="degree"></span>
+							</h3>
+        </ion-col>
+        <ion-col col-6  text-center center >
+          <h3>Hora: {{ hora }}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h3>
+        </ion-col>
+      </ion-row>			
+      <ion-row>
+        <ion-col col-12  text-center center >
+						<h3><b>COMPROVANTE CREDITO DE CELULAR
+								<span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </b>
+						</h3>
+        </ion-col>       
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 >
+						<h3>==========================================
+								<span [hidden]="agree"></span>
+								<span [hidden]="degree"></span>
+							</h3>
+        </ion-col>       
+    </ion-row>	
+    <ion-row>
+        <ion-col col-1 >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      
+      <ion-col col-10  text-center center>
+        <h2><b>{{ cardNome }}
+          <span [hidden]="agree"></span>
+          <span [hidden]="degree"></span>
+          </b>
+        </h2>
+      </ion-col>
+      <ion-col col-6  >
+          <h3>
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+            </h3>
+      </ion-col>
+    </ion-row>		    	      
+
+      <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-5 text-left left>
+            <h3>OPERADORA............:
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+        <ion-col col-5 text-right right  >
+          <h3>{{produto}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h3>
+        </ion-col>
+        <ion-col col-6  >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row>			
+      
+      <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-5 text-left left >
+            <h3><b>VALOR RECARGA..:
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </b>
+              </h3>
+        </ion-col>
+        <ion-col col-5 text-right right >
+          <h3><b>{{valor | currencyreal}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </b>
+          </h3>
+        </ion-col>
+        <ion-col col-6  >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row>			      
+      <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-7 text-left left>
+            <h3>VALOR TAXA.:
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+        <ion-col col-3 text-right right >
+          <h3>R$ {{r_valor_taxa | currencyreal }}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h3>
+        </ion-col>
+        <ion-col col-6  >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row>			      
+      <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-5 text-left left>
+            <h3><b>VALOR DEBITO:
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+                </b>
+              </h3>
+        </ion-col>
+        <ion-col col-5 text-right right >
+          <h3><b>{{debito | currencyreal}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </b>
+          </h3>
+        </ion-col>
+        <ion-col col-6  >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row>	
+            		      
+
+      <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-5>
+						<h3> DATA RECARGA.: 
+								<span [hidden]="agree"></span>
+								<span [hidden]="degree"></span>
+							</h3>
+        </ion-col>      
+        
+        <ion-col col-5 text-right right   >
+          <h3>{{r_data_hora_confirmacao}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h3>
+        </ion-col>
+        <ion-col col-1 >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row> 
+      
+      <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-5 text-left left>
+            <h3><b>TELEFONE.....:
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+                </b>
+              </h3>
+        </ion-col>
+        <ion-col col-5 text-right right >
+          <h3><b>{{telefone}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </b>
+          </h3>
+        </ion-col>
+        <ion-col col-6  >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row>	 
+      <ion-row>
+        <ion-col col-1 >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      <ion-col col-5 text-left left>
+          <h3><b>VALIDADE CREDITO:
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+              </b>
+            </h3>
+      </ion-col>
+      <ion-col col-5 text-right right >
+        <h3><b>{{p_validade}}
+          <span [hidden]="agree"></span>
+          <span [hidden]="degree"></span>
+        </b>
+        </h3>
+      </ion-col>
+      <ion-col col-6  >
+          <h3>
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+            </h3>
+      </ion-col>
+    </ion-row>	 
+    <ion-row>
+          <ion-col col-1 >
+              <h3>
+                  <span [hidden]="agree"></span>
+                  <span [hidden]="degree"></span>
+                </h3>
+          </ion-col>
+        <ion-col col-5 text-left left>
+            <h3><b>NR. DOCUMENTO..:
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+                </b>
+              </h3>
+        </ion-col>
+        <ion-col col-5 text-right right >
+          <h3><b>{{p_id_ac_recarga_celular}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </b>
+          </h3>
+        </ion-col>
+        <ion-col col-6  >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      </ion-row>      
+           
+      <ion-row>
+        <ion-col col-1 >
+            <h3>
+                <span [hidden]="agree"></span>
+                <span [hidden]="degree"></span>
+              </h3>
+        </ion-col>
+      <ion-col col-5 text-left left>
+          <h3><b>NR. TRANSAÇÃO..:
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+              </b>
+            </h3>
+      </ion-col>
+      <ion-col col-5 text-right right >
+        <h3><b>{{r_numero_recarga}}
+          <span [hidden]="agree"></span>
+          <span [hidden]="degree"></span>
+        </b>
+        </h3>
+      </ion-col>
+      <ion-col col-6  >
+          <h3>
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+            </h3>
+      </ion-col>
+    </ion-row>      
+
+      	          
+     
+			<ion-row>
+        <ion-col col-12  >
+						<h4>==========================================
+								<span [hidden]="agree"></span>
+								<span [hidden]="degree"></span>
+							</h4>
+        </ion-col>       
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-1 >
+          <h3>
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+            </h3>
+      </ion-col>
+    <ion-col col-6 text-left left>
+        <h3><b>AUTENTICACAO TIM.....:
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+            </b>
+          </h3>
+    </ion-col>
+    <ion-col col-4 text-right right >
+      <h3><b>{{p_nsu_operadora}}
+        <span [hidden]="agree"></span>
+        <span [hidden]="degree"></span>
+      </b>
+      </h3>
+    </ion-col>
+    <ion-col col-6  >
+        <h3>
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree"></span>
+          </h3>
+    </ion-col>
+  </ion-row>          
+    
+      
+    <ion-row>
+      <ion-col col-12 >
+          <h4>------------------------------------------------------------------------------------
+              <span [hidden]="agree"></span>
+              <span [hidden]="degree"></span>
+            </h4>
+      </ion-col>       
+  </ion-row>  
+
+      <ion-row [hidden]="degree">
+        <ion-col width-100 class="texto-centro">
+          <h1>Não foi possível realizar a venda.</h1>
+        </ion-col>
+      </ion-row>     
+    </ion-card> 
+
+    <ion-card class="base-cartao-amarelo">
+      <img src="{{ticketBottom}}">
+    </ion-card> 
+  </ion-item-group>
+
+	<ion-grid>
+    <ion-row>		  	
+      <ion-col width-50 [hidden]="agree">
+        <button ion-button block large primary (click)="mailSend()">
+          Enviar
+        </button>
+      </ion-col>
+    <!--  <ion-col width-50  class="texto-centro">
+          <button ion-button block large primary (click)="goToCarteira()">         
+            Finalizar  
+          </button>
+      </ion-col>
+    -->
+      <ion-col width-50  class="texto-centro">
+        <button ion-button block large primary (click)="close()">         
+          Finalizar  
+        </button>
+      </ion-col>
+   
+    </ion-row>
+  </ion-grid>			  
+</ion-content>

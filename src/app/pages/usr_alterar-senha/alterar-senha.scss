@@ -1,0 +1,5 @@
+page-alterar-senha {
+  input[type=tel] {
+    -webkit-text-security: disc !important;
+  }
+}

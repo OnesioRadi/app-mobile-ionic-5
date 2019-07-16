@@ -1,0 +1,8 @@
+{
+  "name": "Sincard",
+  "app_id": "814C53C9",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

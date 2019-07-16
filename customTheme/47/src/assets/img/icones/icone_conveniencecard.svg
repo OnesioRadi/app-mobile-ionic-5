@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!-- Generator: Adobe Fireworks 10, Export SVG Extension by Aaron Beall (http://fireworks.abeall.com) . Version: 0.6.1  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="Logo%20Convenience%20Card%20-%20Curva02.fw-P%E1gina%201" viewBox="0 0 100 80" style="background-color:#ffffff00" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+	x="0px" y="0px" width="100px" height="80px"
+>
+	<defs>
+		<linearGradient id="gradient1" x1="50%" y1="0%" x2="50%" y2="100%">
+			<stop stop-color="#cf0404" stop-opacity="1" offset="0%"/>
+			<stop stop-color="#fb6767" stop-opacity="1" offset="31.6667%"/>
+			<stop stop-color="#cd0202" stop-opacity="1" offset="100%"/>
+		</linearGradient>
+	</defs>
+	<g id="Camada%201">
+		<path d="M 50.4951 0 L 49.5049 0 L 30.9153 0 C 12.3661 1.0127 6.1831 23.2911 7.2136 35.443 C 6.1831 45.5696 4.122 55.6962 3.0915 65.8228 C 3.0915 70.8861 2.061 75.9494 0 80 L 49.5049 80 L 50.4951 80 L 68.0542 80 C 73.2067 80 85.5728 69.8734 87.6339 67.8481 C 93.8169 58.7342 92.7864 44.557 93.8169 36.4557 C 94.8475 24.3038 96.9084 12.1519 100 0 L 50.4951 0 Z" stroke="#d50101" stroke-width="1" fill="url(#gradient1)"/>
+		<path d="M 57.569 10 L 57.5949 35.5694 L 79 49.5679 L 53.4202 49.5955 L 39.4181 71 L 39.3922 45.4192 L 18 31.4207 L 43.5669 31.3932 L 57.569 10 ZM 57.569 10 L 57.569 10 Z" fill="#ffffff"/>
+	</g>
+</svg>

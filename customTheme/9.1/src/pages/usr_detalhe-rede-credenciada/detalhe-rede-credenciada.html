@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>Rede {{ rc.r_nome_fantasia }}</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+		  <ion-icon name="close"></ion-icon>
+		</button>
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-card>
+	<ion-list>
+        <ion-item-divider color="light">
+		  <ion-grid>
+			  <ion-row>
+			    <ion-col col-4>	
+						<img class="icone-rede" *ngIf="rc.r_ramo_ativ != null && rc.r_qtde_ramo_atividade == 1" src="./assets/img/icones/grupo-rede-credenciada/{{ rc.r_ramo_ativ }}.svg">
+						
+						<img class="icone-rede" *ngIf="rc.r_ramo_ativ != null && rc.r_qtde_ramo_atividade > 1" src="./assets/img/icones/grupo-rede-credenciada/OUTROS.svg">
+
+		  			<img class="icone-rede" *ngIf="rc.r_ramo_ativ == null" src="./assets/img/icones/grupo-rede-credenciada/OUTROS.svg">
+		  			<h2 class="texto-centro"><ion-icon name="pin" *ngIf="rc.r_distancia != null"></ion-icon> {{ rc.r_distancia }}</h2>
+		  		</ion-col>
+		  		<ion-col col-8>
+					<button ion-button large icon-left block outline (click)="addFavorite()">
+				      <ion-icon name="heart"></ion-icon>
+				      	Favorito
+				    </button>
+				    <button ion-button large icon-left block outline (click)="goToMap()" >
+				      <ion-icon name="navigate"></ion-icon>
+				      	Mapa
+				    </button>
+		  		</ion-col>
+			   </ion-row>
+		  </ion-grid>
+		</ion-item-divider> 
+		<ion-item-divider color="light" *ngIf="rc.r_cash_back == 'S'">
+			<h4 class="negrito">Créditos</h4>	
+		    <ion-grid>
+			  <ion-row>
+			    <ion-col col-3>
+					<p class="truncate texto-centro">SEG</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_segunda }}%</span></p>
+			    </ion-col>
+			    <ion-col col-3>
+					<p class="truncate texto-centro">TER</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_terca }}%</span></p>
+			    </ion-col>
+			    <ion-col col-3>
+					<p class="truncate texto-centro">QUA</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_quarta }}%</span></p>
+			    </ion-col>
+			    <ion-col col-3>
+					<p class="truncate texto-centro">QUI</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_quinta }}%</span></p>
+			    </ion-col> 
+			  </ion-row>
+			  <ion-row>	
+				<ion-col col-3>
+					<p class="truncate texto-centro">SEX</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_sexta }}%</span></p>
+			    </ion-col>
+			    <ion-col col-3>
+					<p class="truncate texto-centro">SAB</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_sabado }}%</span></p>
+			    </ion-col>
+			    <ion-col col-3>
+					<p class="truncate texto-centro">DOM</p>
+					<p class="truncate texto-centro"><span class="porcentagem-desconto">{{ rc.r_cash_back_domingo }}%</span></p>
+			    </ion-col>
+			    <ion-col col-3>
+					<p class="truncate texto-centro"></p>
+					<p class="truncate texto-centro"></p>
+			    </ion-col>	
+			  </ion-row>
+		   </ion-grid>
+	    </ion-item-divider> 	
+	</ion-list> 	
+	<ion-item>
+	    <ion-icon name="basket" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <h2>{{ rc.r_nome_fantasia }}</h2>
+	    <p>{{ rc.r_segmento }}</p>
+	</ion-item>
+	<ion-item [hidden]="exibeFone">
+	    <ion-icon name="call" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <h1><a class="sem-sublinhado" href="tel:{{rc.r_telefone}}">{{ formatedPhone }}</a></h1>
+	</ion-item>
+	<ion-item>
+	    <ion-icon name="pin" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	    <h2>{{ rc.r_endereco +' '+ rc.r_numero }}</h2>
+	    <p>{{ rc.r_bairro }}</p>
+	    <p>{{ rc.r_cidade + ' ' + rc.r_uf + ' ' + rc.r_cep }}</p>
+	</ion-item>
+	<ion-item>
+	    <ion-icon name="card" item-left color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+	     <h2>CARTÕES ACEITOS</h2>
+	</ion-item>
+	<ion-item>
+    	<ion-textarea rows="7" readonly placeholder="{{ rc.r_tipo_cartao }}"></ion-textarea>
+	   </ion-item>
+	</ion-card>
+</ion-content>

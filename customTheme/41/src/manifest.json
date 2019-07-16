@@ -1,0 +1,13 @@
+{
+  "name": "008 Cards",
+  "short_name": "008cards",
+  "start_url": "index.html?empresa=41",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#262561",
+  "theme_color": "#262561"
+}

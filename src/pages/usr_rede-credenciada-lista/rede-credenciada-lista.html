@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'PG_REDE-CREDENCIADA-LISTA_TITULO' | translate }}</ion-title>
+    <ion-buttons end>
+        <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+   </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-searchbar placeholder="Buscar" [(ngModel)]="search" (ionInput)="filtraRede($event)" (ionCancel)="cancelaFiltro($event)" (ionClear)="limpaFiltro($event)"></ion-searchbar>
+	
+	<button ion-item *ngFor="let r of rc" (click)="modalRcDetail($event, r)">
+	    <ion-thumbnail item-left (press)="addFavorite(r)" *ngIf="r.r_ramo_ativ != '' && r.r_qtde_ramo_atividade == 1">
+        <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/{{ r.r_ramo_ativ }}.svg">
+			</ion-thumbnail>
+			
+	    <ion-thumbnail item-left (press)="addFavorite(r)" *ngIf="r.r_ramo_ativ != '' && r.r_qtde_ramo_atividade > 1">
+        <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/OUTROS.svg">
+      </ion-thumbnail>
+
+      <ion-thumbnail item-left (press)="addFavorite(r)" *ngIf="r.r_ramo_ativ == ''">
+        <img class="icone-rede" src="./assets/img/icones/grupo-rede-credenciada/OUTROS.svg">
+      </ion-thumbnail>
+    	<h3 class="truncate">{{ r.r_nome_fantasia }}</h3>
+    	<p class="truncate">{{ r.r_segmento }}</p>
+    	<p class="truncate">
+    		<strong>CARTÕES ACEITOS:</strong>
+    		{{ r.r_tipo_cartao }}
+    	</p>
+    	<p class="truncate">
+    		<span class="porcentagem-desconto" *ngIf="r.r_cash_back_dia != null">
+    			{{ r.r_cash_back_dia }}% cash back
+    		</span>
+    	</p>
+  	</button>
+</ion-content>

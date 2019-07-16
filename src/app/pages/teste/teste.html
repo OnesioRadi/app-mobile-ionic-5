@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item [class.active]="focus === 'userId'" (touchend)="setFocus('userId')">
+            <ion-label stacked>User ID</ion-label>
+            <ion-input type="text" disabled [ngModel]="userId"></ion-input>
+        </ion-item>
+
+        <ion-item [class.active]="focus === 'userPassword'" (touchend)="setFocus('userPassword')">
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password" disabled [ngModel]="userPassword"></ion-input>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-digit-keyboard
+    [align]="keyboardSettings.align"
+    [width]="keyboardSettings.width"
+    [visible]="keyboardSettings.visible"
+    [leftActionOptions]="keyboardSettings.leftActionOptions"
+    [rightActionOptions]="keyboardSettings.rightActionOptions"
+    [roundButtons]="keyboardSettings.roundButtons"
+    [showLetters]="keyboardSettings.showLetters"
+    [swipeToHide]="keyboardSettings.swipeToHide"
+    [theme]="keyboardSettings.theme"
+></ion-digit-keyboard>

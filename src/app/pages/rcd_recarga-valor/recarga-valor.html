@@ -1,0 +1,59 @@
+<ion-header>
+	<ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+		<ion-title>{{ pageTitle }}</ion-title>
+		<ion-buttons end>
+      <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-item-group>
+		<ion-grid>
+			<ion-row align-items-center justify-content-center>
+				<ion-col col-12 [class.active]="focus === 'rechargeValue'" (touchend)="setFocus('rechargeValue')">
+					<ion-item>
+            <ion-label>R$</ion-label>
+            <ion-input readonly [(ngModel)]="rechargeValue" type="tel" placeholder="0,00" class="texto-centro alinhamento-valor fonte-valor"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-group>
+
+
+  <div [hidden]="rechargeConfirm">
+		<ion-row>
+			<ion-col width-100>
+				<h3 class="negrito texto-centro">Confirma valor da recarga do cartão?</h3>
+				<h4>Usuário: {{userName}}</h4>
+				<h4>Cartão: {{cardNumber}}</h4>
+				<h4>Valor da recarga R$ {{rechargeValue}}</h4>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col width-50>
+				<button ion-button danger block large (click)="cancel()">
+					Não
+				</button> 
+			</ion-col>
+			<ion-col width-50 (click)="rechargeMake()">
+				<button ion-button favorite block large>
+					Sim
+				</button> 
+			</ion-col>
+		</ion-row>    
+	</div>
+</ion-content>
+
+<ion-digit-keyboard [hidden]="keyboardVirtual"
+[align]="keyboardSettings.align"
+[width]="keyboardSettings.width"
+[visible]="keyboardSettings.visible"
+[leftActionOptions]="keyboardSettings.leftActionOptions"
+[rightActionOptions]="keyboardSettings.rightActionOptions"
+[roundButtons]="keyboardSettings.roundButtons"
+[showLetters]="keyboardSettings.showLetters"
+[swipeToHide]="keyboardSettings.swipeToHide"
+[theme]="keyboardSettings.theme"
+></ion-digit-keyboard>

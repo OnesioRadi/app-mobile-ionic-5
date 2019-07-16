@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ 'PG_PGTO-BOLETO_TITULO' | translate }}</ion-title>       
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>  
+  <ion-list>
+    <ion-list-header id="instructions">
+      <ion-fab top right>
+        <button color="dark" ion-fab mini (click)='scan()'><ion-icon name="barcode"></ion-icon></button>    
+      </ion-fab>
+      <ion-item text-wrap>
+        Digite o Código de Barras ou clique 
+        no botão ao lado para leitura.
+      </ion-item>        
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>{{ 'PG_PGTO-BOLETO-LABEL-PRIMEIRA-PARTE' | translate }}</ion-label>    
+      <ion-input type="tel" [(ngModel)]="firstPart" tabindex="1" #part1 (keyup)="barcodeMask($event, 1, part2)"  maxLength="12"></ion-input>
+    </ion-item>
+  
+    <ion-item >
+      <ion-label>{{ 'PG_PGTO-BOLETO-LABEL-SEGUNDA-PARTE' | translate }}</ion-label>      
+      <ion-input type="tel" [(ngModel)]="secondPart" tabindex="2" #part2 (keyup)="barcodeMask($event, 2, part3)"  maxlength="12"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>{{ 'PG_PGTO-BOLETO-LABEL-TERCEIRA-PARTE' | translate }}</ion-label>
+      <ion-input type="tel" [(ngModel)]="thirdPart" tabindex="3" #part3 (keyup)="barcodeMask($event, 3, part4)"  maxLength="12"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>{{ 'PG_PGTO-BOLETO-LABEL-QUARTA-PARTE' | translate }}</ion-label>
+      <ion-input type="tel" [(ngModel)]="fourthPart" tabindex="4" #part4 (keyup)="barcodeMask($event, 4, '')" (ionBlur)="barcodeCheck()" maxLength="12"></ion-input>
+    </ion-item>    
+    <br/>
+    <ion-item [hidden]="ticketInfoHidden">
+      <ion-label>{{ 'PG_PGTO-BOLETO-LABEL-DATA-VENCIMENTO' | translate }}</ion-label>
+      <ion-datetime required [(ngModel)]="expDate" tabindex="5" #expirationDate displayFormat="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+    <br/>
+    <ion-item-divider color="light" [hidden]="ticketInfoHidden" >Confirma pagamento do boleto?      
+      <ion-item>                    
+        <ion-icon name="logo-usd" item-start></ion-icon>        
+        <ion-note item-end class="texto-preto negrito">      
+          {{ticketInfo.ticketValue}}
+        </ion-note>
+      </ion-item>      
+      <ion-item >        
+        {{ticketInfo.segment}}
+      </ion-item>          
+        <ion-row>
+          <ion-col class="btn-center">
+            <button ion-button color="secondary" (click)="validates()">{{ 'PG_PGTO-BOLETO-BTN-CONFIRMAR' | translate }}</button>        
+          </ion-col>    
+          <ion-col class="btn-center">
+            <button ion-button color="danger" (click)="clear(part1)" >{{ 'PG_PGTO-BOLETO-BTN-CANCELAR' | translate }}</button>        
+          </ion-col>
+        </ion-row>              
+    </ion-item-divider>
+  </ion-list>    
+</ion-content>
+

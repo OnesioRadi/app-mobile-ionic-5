@@ -1,0 +1,13 @@
+{
+  "name": "Sin Card",
+  "short_name": "SinCard",
+  "start_url": "index.html?empresa=2",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#01579B",
+  "theme_color": "#01579B"
+}

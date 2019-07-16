@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ 'PG_MENU-PRINCIPAL_TITULO' | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="exit()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="goToSale()">
+      <button ion-button icon-only large item-left clear>
+        <ion-icon name="card" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+      <h2>{{ 'PG_MENU-PRINCIPAL_LABEL_PG_CARTAO' | translate }}</h2>
+      <p>{{ 'PG_MENU-PRINCIPAL_SUBLABEL_PG_CARTAO' | translate }}</p>
+      <button ion-button icon-only large item-right clear>
+        <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+    </button>
+    <button ion-item [hidden]="d.pg_home_main_menu_cardRecharge" (click)="goToCardRecharge()">
+      <button ion-button icon-only large item-left clear>
+        <ion-icon ios="logo-usd" md="logo-usd" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+      <h2>{{ 'PG_MENU-PRINCIPAL_LABEL_RECARGA_CARTAO' | translate }}</h2>
+      <p>{{ 'PG_MENU-PRINCIPAL_SUBLABEL_RECARGA_CARTAO' | translate }}</p>
+      <button ion-button icon-only large item-right clear>
+        <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+    </button>
+    <button ion-item (click)="goToSaleExtract()">
+      <button ion-button icon-only large item-left clear>
+        <ion-icon name="list-box" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+      <h2>{{ 'PG_MENU-PRINCIPAL_LABEL_EXTRATO_VENDAS' | translate }}</h2>
+      <p>{{ 'PG_MENU-PRINCIPAL_SUBLABEL_EXTRATO_VENDAS' | translate }}</p>
+      <button ion-button icon-only large item-right clear>
+        <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+    </button>
+    <button ion-item (click)="goToBalanceCard()">
+      <button ion-button icon-only large item-left clear>
+        <ion-icon name="cash" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+      <h2>{{ 'PG_MENU-PRINCIPAL_LABEL_SALDO_CARTAO' | translate }}</h2>
+      <p>{{ 'PG_MENU-PRINCIPAL_SUBLABEL_SALDO_CARTAO' | translate }}</p>
+      <button ion-button icon-only large item-right clear>
+        <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+    </button>
+    <button ion-item (click)="goToConf()">
+      <button ion-button icon-only large item-left clear>
+        <ion-icon name="cog" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+      <h2>{{ 'PG_MENU-PRINCIPAL_LABEL_CONFIGURACOES' | translate }}</h2>
+      <p>{{ 'PG_MENU-PRINCIPAL_SUBLABEL_CONFIGURACOES' | translate }}</p>
+      <button ion-button icon-only large item-right clear>
+        <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+    </button>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar  color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{merchantName}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right>
+       <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+     </button>
+   </ion-buttons>
+ </ion-toolbar>
+</ion-footer>

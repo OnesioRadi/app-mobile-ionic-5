@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+		<ion-title>{{ pageTitle }}</ion-title>
+		<ion-buttons end>
+      <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="texto-centro alinhamento-valor">
+    <ion-item-group >
+      <!-- <ion-item class="texto-direita">Máximo de parcelas:<b> {{ partMax }}</b></ion-item> -->
+      <ion-item class="texto-direita">Informe a parcela</ion-item>
+      <ion-item>	
+        <ion-input readonly [(ngModel)]="partQtd" type="tel" maxlength="2" placeholder="0" class="texto-centro alinhamento-valor fonte-valor"></ion-input>
+      </ion-item>
+    </ion-item-group>
+  </div>
+</ion-content>
+
+
+<ion-digit-keyboard
+[align]="keyboardSettings.align"
+[width]="keyboardSettings.width"
+[visible]="keyboardSettings.visible"
+[leftActionOptions]="keyboardSettings.leftActionOptions"
+[rightActionOptions]="keyboardSettings.rightActionOptions"
+[roundButtons]="keyboardSettings.roundButtons"
+[showLetters]="keyboardSettings.showLetters"
+[swipeToHide]="keyboardSettings.swipeToHide"
+[theme]="keyboardSettings.theme"
+></ion-digit-keyboard>
+

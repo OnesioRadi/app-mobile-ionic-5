@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+    <ion-title>{{ 'PG_CONFIGURACOES-REDE_TITULO' | translate }}</ion-title>
+    <ion-buttons end>
+      <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item>
+      <button ion-button icon-only large item-left clear>
+        <ion-icon name="trash" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+      <h2>{{ 'PG_CONFIGURACOES-REDE_LABEL_LIMPAR_CONFIG' | translate }}</h2>
+      <p>{{ 'PG_CONFIGURACOES-REDE_SUBLABEL_REMOVE_DADOS' | translate }}</p>
+      <button ion-button icon-only large item-right clear (click)='settingsCleaningConfirm()'>
+        <ion-icon name="send" hideWhen="ios" color="{{ 'CG_COR_PRIMARIA' | translate }}"></ion-icon>
+      </button>
+    </button>
+  </ion-list>
+</ion-content>

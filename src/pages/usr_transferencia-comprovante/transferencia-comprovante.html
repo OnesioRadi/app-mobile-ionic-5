@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}" hideBackButton>
+    <ion-title>{{ 'PG_TRANSFERENCIA_TITULO_COMPROVANTE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-item-group>
+    <ion-card class="{{situation}}">
+      <ion-row>
+        <ion-col width-20>
+          <img height="85px" src="{{situationIcon}}">
+        </ion-col>
+        <ion-col width-80>
+          <h1>{{respMsg}}
+            <span [hidden]="agree"></span>
+            <span [hidden]="degree">Não foi possível realizar a transferência.</span>
+          </h1>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-item-group>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button ion-button full color="{{ 'CG_COR_PRIMARIA' | translate }}" (click)="closeTicket()">
+     {{ 'PG_TRANSFERENCIA_BTN_FINALIZAR' | translate }}
+   </button>
+ </ion-toolbar>
+</ion-footer>
+
+

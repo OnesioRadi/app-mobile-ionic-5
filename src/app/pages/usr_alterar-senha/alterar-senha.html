@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+		<ion-title>Alterar senha</ion-title>
+		<ion-buttons end>
+				<img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+	 </ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-item-group>
+		<ion-list padding>
+			<h3 ion-text color="{{ 'CG_COR_PRIMARIA' | translate }}" class="texto-centro">{{ title }}</h3>
+			<ion-item>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>{{ 'PG_ALTERAR-SENHA-LABEL-SENHA-ATUAL' | translate }}</ion-label>
+				<ion-input type="tel" placeholder="******" maxlength="6" [(ngModel)]="currentPass"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>{{ 'PG_ALTERAR-SENHA-LABEL-NOVA-SENHA' | translate }}</ion-label>
+				<ion-input type="tel" placeholder="******" maxlength="6" [(ngModel)]="newPass"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label color="{{ 'CG_COR_PRIMARIA' | translate }}" stacked>{{ 'PG_ALTERAR-SENHA-LABEL-CONFIRMAR-NOVA-SENHA' | translate }}</ion-label>
+				<ion-input type="tel" placeholder="******" maxlength="6" [(ngModel)]="confirmNewPass"></ion-input>
+			</ion-item>
+			<ion-item>
+				<button ion-button block large color="{{ 'CG_COR_PRIMARIA' | translate }}" (click)="validates()">{{ 'PG_ESQUECI-MINHA-SENHA_BTN_ALTERAR_SENHA' | translate }}</button>
+			</ion-item>
+		</ion-list>
+	</ion-item-group>
+</ion-content>

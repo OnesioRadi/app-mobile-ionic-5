@@ -1,0 +1,8 @@
+{
+  "name": "Orgcard",
+  "app_id": "87971d37",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

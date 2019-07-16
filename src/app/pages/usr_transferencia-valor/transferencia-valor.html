@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar color="{{ 'CG_COR_PRIMARIA' | translate }}">
+		<ion-title>{{ 'PG_TRANSFERENCIA_TITULO_VALOR' | translate }}</ion-title>
+		<ion-buttons end>
+      <img src="{{ 'CG_LOGO_BRANCA' | translate }}" class="logo-cartao-mini">
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-item-group>
+		<ion-grid>
+			<ion-row align-items-center justify-content-center>
+				<ion-col col-12 [class.active]="focus === 'transferValue'" (touchend)="setFocus('transferValue')">
+					<ion-item>
+            <ion-label>R$</ion-label>
+            <ion-input readonly [(ngModel)]="transferValue" type="tel" placeholder="0,00" class="texto-centro alinhamento-valor fonte-valor"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item-group>
+</ion-content>
+
+<ion-digit-keyboard
+[align]="keyboardSettings.align"
+[width]="keyboardSettings.width"
+[visible]="keyboardSettings.visible"
+[leftActionOptions]="keyboardSettings.leftActionOptions"
+[rightActionOptions]="keyboardSettings.rightActionOptions"
+[roundButtons]="keyboardSettings.roundButtons"
+[showLetters]="keyboardSettings.showLetters"
+[swipeToHide]="keyboardSettings.swipeToHide"
+[theme]="keyboardSettings.theme"
+></ion-digit-keyboard>
